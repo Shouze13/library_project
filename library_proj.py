@@ -205,7 +205,7 @@ def main():
                     print("Поле 'Название книги' не может быть пустым.")
                 elif not author:
                     print("Поле 'Автор книги' не может быть пустым.")
-                elif not year.isdigit() or int(year) < 1000 or int(year) > 9999:
+                elif not year.isdigit() or int(year) < 1000 or int(year) > 2100:
                     print("Поле 'Год издания книги' должен быть числом из четырех цифр и не может быть пустым .")
                 else:
                     # Все введённые данные валидны, создаем объект класса "Books"
@@ -223,7 +223,7 @@ def main():
 
 
         elif choice == "3":
-            criterion = input("Для поиска книги введите одну из полей: автор, название книги или год издания: ")
+            criterion = input("Введите одно или несколько (через запятую) сведений о книге : автор, название книги, год издания\n").strip()
             if criterion:
                 results = library_database.search_book(criterion.split(", "))
                 if len(results) == 0:
